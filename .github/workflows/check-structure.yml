@@ -21,18 +21,18 @@ jobs:
           echo "Checking for required folders and files..."
 
           # Define required folders
-          REQUIRED_FOLDERS = (
-            "data-raw/data_objects"
-            "data-raw/eml"
-            "data-raw/metadata_templates"
+          REQUIRED_FOLDERS=(
+            "data-raw/data_objects",
+            "data-raw/eml",
+            "data-raw/metadata_templates",
             "data-raw/metadata_templates/attributes_csv_template",
             "data-raw/metadata_templates/personnel_csv_template"
           )
 
           # Define required files
-          REQUIRED_FILES = (
-            "data-raw/metadata_templates/abstract.txt"
-            "data-raw/metadata_templates/intellectual_rights.txt"
+          REQUIRED_FILES=(
+            "data-raw/metadata_templates/abstract.txt",
+            "data-raw/metadata_templates/intellectual_rights.txt",
             "data-raw/metadata_templates/keywords.txt",
             "data-raw/metadata_templates/methods.docx",
             "data-raw/metadata_templates/taxonomic_coverage.txt"
