@@ -22,20 +22,25 @@ jobs:
 
           # Define required folders
           REQUIRED_FOLDERS=(
-            "data-raw/data_objects"
-            "data-raw/eml"
-            "data-raw/metadata_templates"
-            "data-raw/metadata_templates/attributes_csv_template"
-            "data-raw/metadata_templates/personnel_csv_template"
+            "data/clean"
+            "data/raw"
+            "clean"
+            "ingest"
+            "qc"
+            "publish/eml"
+            "publish/metadata_templates"
+            "publish/metadata_templates/attributes_csv_template"
+            "publish/metadata_templates/personnel_csv_template"
           )
 
           # Define required files
           REQUIRED_FILES=(
-            "data-raw/metadata_templates/abstract.txt"
-            "data-raw/metadata_templates/intellectual_rights.txt"
-            "data-raw/metadata_templates/keywords.txt"
-            "data-raw/metadata_templates/methods.docx"
-            "data-raw/metadata_templates/taxonomic_coverage.txt"
+            "publish/metadata_templates/abstract.txt"
+            "publish/metadata_templates/intellectual_rights.txt"
+            "publish/metadata_templates/keywords.txt"
+            "publish/metadata_templates/methods.docx"
+            "publish/metadata_templates/taxonomic_coverage.txt"
+            "publish/metadata_templates/geographic_coverage.txt"
           )
 
           # Initialize error flag
