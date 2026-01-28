@@ -21,7 +21,7 @@ DATA_FILES <- c(
 # ============================================
 # 2. SPECIFY DATA DIRECTORY
 # ============================================
-DATA_DIR <- here("data-raw","data_objects")
+DATA_DIR <- here("data","clean")
 
 # ============================================
 # 3. OUTLIER DETECTION SETTINGS
