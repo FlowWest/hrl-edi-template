@@ -28,20 +28,20 @@ jobs:
             "ingest"
             "qc"
             "publish/eml"
-            "publish/metadata_templates"
-            "publish/metadata_templates/attributes_csv_template"
-            "publish/metadata_templates/personnel_csv_template"
+            "publish/metadata"
+            "publish/metadata/attributes"
+            "publish/metadata/personnel"
           )
 
           # Define required files
           REQUIRED_FILES=(
-            "publish/metadata_templates/abstract.txt"
-            "publish/metadata_templates/intellectual_rights.txt"
-            "publish/metadata_templates/keywords.txt"
-            "publish/metadata_templates/methods.docx"
-            "publish/metadata_templates/taxonomic_coverage.txt"
-            "publish/metadata_templates/geographic_coverage.txt"
-            "publish/metadata_templates/personnel.txt"
+            "publish/metadata/abstract.txt"
+            "publish/metadata/intellectual_rights.txt"
+            "publish/metadata/keywords.txt"
+            "publish/metadata/methods.docx"
+            "publish/metadata/taxonomic_coverage.txt"
+            "publish/metadata/geographic_coverage.txt"
+            "publish/metadata/personnel.txt"
           )
 
           # Initialize error flag
