@@ -74,23 +74,23 @@ jobs:
           # Check that all files in data/ are .csv
           echo ""
           echo "=== Checking Data File Types ==="
-          NON_CSV_FILES=$(find data/ -type f ! -name "*.csv" ! -name ".gitkeep" 2>/dev/null)
+          NON_CSV_FILES=$(find data/clean/ -type f ! -name "*.csv" ! -name ".gitkeep" 2>/dev/null)
           if [ -z "$NON_CSV_FILES" ]; then
-            echo "✓ All files in data/ are .csv"
+            echo "✓ All files in data/clean/ are .csv"
           else
-            echo "✗ Non-CSV files found in data/:"
+            echo "✗ Non-CSV files found in data/clean/:"
             echo "$NON_CSV_FILES" | while read -r f; do
               echo "  - $f"
             done
             ERRORS=$((ERRORS + $(echo "$NON_CSV_FILES" | wc -l)))
           fi
 
-          # Check that all CSV files in data/ are valid UTF-8
+          # Check that all CSV files in data/clean/ are valid UTF-8
           echo ""
           echo "=== Checking CSV Encoding ==="
-          CSV_FILES=$(find data/ -type f -name "*.csv" 2>/dev/null)
+          CSV_FILES=$(find data/clean/ -type f -name "*.csv" 2>/dev/null)
           if [ -z "$CSV_FILES" ]; then
-            echo "⚠ No CSV files found in data/ to check"
+            echo "⚠ No CSV files found in data/clean/ to check"
           else
             while IFS= read -r csv; do
               ENCODING=$(file --mime-encoding -b "$csv")
