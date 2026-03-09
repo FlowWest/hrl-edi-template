@@ -41,6 +41,7 @@ jobs:
             "publish/metadata_templates/methods.docx"
             "publish/metadata_templates/taxonomic_coverage.txt"
             "publish/metadata_templates/geographic_coverage.txt"
+            "publish/metadata_templates/personnel.txt"
           )
 
           # Initialize error flag
@@ -69,6 +70,38 @@ jobs:
               ERRORS=$((ERRORS + 1))
             fi
           done
+
+          # Check that all files in data/ are .csv
+          echo ""
+          echo "=== Checking Data File Types ==="
+          NON_CSV_FILES=$(find data/ -type f ! -name "*.csv" ! -name ".gitkeep" 2>/dev/null)
+          if [ -z "$NON_CSV_FILES" ]; then
+            echo "✓ All files in data/ are .csv"
+          else
+            echo "✗ Non-CSV files found in data/:"
+            echo "$NON_CSV_FILES" | while read -r f; do
+              echo "  - $f"
+            done
+            ERRORS=$((ERRORS + $(echo "$NON_CSV_FILES" | wc -l)))
+          fi
+
+          # Check that all CSV files in data/ are valid UTF-8
+          echo ""
+          echo "=== Checking CSV Encoding ==="
+          CSV_FILES=$(find data/ -type f -name "*.csv" 2>/dev/null)
+          if [ -z "$CSV_FILES" ]; then
+            echo "⚠ No CSV files found in data/ to check"
+          else
+            while IFS= read -r csv; do
+              ENCODING=$(file --mime-encoding -b "$csv")
+              if [ "$ENCODING" = "utf-8" ] || [ "$ENCODING" = "us-ascii" ]; then
+                echo "✓ $csv ($ENCODING)"
+              else
+                echo "✗ $csv has encoding: $ENCODING (expected utf-8)"
+                ERRORS=$((ERRORS + 1))
+              fi
+            done <<< "$CSV_FILES"
+          fi
 
           # Report results
           echo ""
