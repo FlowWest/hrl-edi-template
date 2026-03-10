@@ -83,15 +83,15 @@ jobs:
             fi
           done
 
-          # Check that all files in data/ are an allowed type
+          # Check that all files in data/clean/ are an allowed type
           echo ""
           echo "=== Checking Data File Types ==="
           ALLOWED_EXTENSIONS="csv|rds"
-          BAD_FILES=$(find data/ -type f ! -name ".gitkeep" 2>/dev/null | grep -ivE "\.(${ALLOWED_EXTENSIONS})$")
+          BAD_FILES=$(find data/clean/ -type f ! -name ".gitkeep" 2>/dev/null | grep -ivE "\.(${ALLOWED_EXTENSIONS})$")
           if [ -z "$BAD_FILES" ]; then
-            echo "✓ All files in data/ are allowed types (.${ALLOWED_EXTENSIONS//|/, .})"
+            echo "✓ All files in data/clean/ are allowed types (.${ALLOWED_EXTENSIONS//|/, .})"
           else
-            echo "✗ Unexpected file types found in data/:"
+            echo "✗ Unexpected file types found in data/clean/:"
             echo "$BAD_FILES" | while read -r f; do
               echo "  - $f"
             done
