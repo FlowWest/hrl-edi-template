@@ -86,7 +86,7 @@ jobs:
           # Check that all files in data/clean/ are an allowed type
           echo ""
           echo "=== Checking Data File Types ==="
-          ALLOWED_EXTENSIONS="csv|rds"
+          ALLOWED_EXTENSIONS="csv|rds|.md"
           BAD_FILES=$(find data/clean/ -type f ! -name ".gitkeep" 2>/dev/null | grep -ivE "\.(${ALLOWED_EXTENSIONS})$" || true)
           if [ -z "$BAD_FILES" ]; then
             echo "✓ All files in data/clean/ are allowed types (.${ALLOWED_EXTENSIONS//|/, .})"
