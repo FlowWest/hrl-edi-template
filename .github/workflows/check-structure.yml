@@ -27,6 +27,7 @@ jobs:
             "clean"
             "ingest"
             "qc"
+            "publish"
             "publish/eml"
             "publish/metadata"
             "publish/metadata/attributes"
