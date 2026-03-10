@@ -32,9 +32,13 @@ jobs:
             "publish/metadata"
             "publish/metadata/attributes"
             "publish/metadata/personnel"
+            "scripts"
+            "renv"
           )
 
           # Define required files
+
+          # Metadata
           REQUIRED_FILES=(
             "publish/metadata/abstract.txt"
             "publish/metadata/intellectual_rights.txt"
@@ -43,6 +47,12 @@ jobs:
             "publish/metadata/taxonomic_coverage.txt"
             "publish/metadata/geographic_coverage.txt"
             "publish/metadata/personnel.txt"
+
+          # Package dependency maintanence files
+            "renv.lock"
+            "renv/activate.R"
+            "renv/settings.json"
+            ".Rprofile"
           )
 
           # Initialize error flag
